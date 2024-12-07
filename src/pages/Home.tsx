@@ -29,7 +29,24 @@ function Home() {
 
     return (
         <div className="home">
-            <p>Hello, world!</p>
+            <div className="icon-division">
+                <img src="src/assets/translate-icon.png" className="translate-icon" />
+            </div>
+
+            <h1 className="home-title">Aloy's Translator</h1>
+            <p className="home-description">free, open-source AI translation</p>
+            <button
+                type="submit"
+                onClick={() => {
+                    redirect("ai-translate");
+                }}
+                className="home-button"
+            >
+                Try
+            </button>
+            <div className="arrow-division">
+                <img src="src/assets/arrow.png" className="arrow" />
+            </div>
         </div>
     );
 }
