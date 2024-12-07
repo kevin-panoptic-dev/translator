@@ -3,10 +3,10 @@
     align-items: center;
     flex-direction: column;
     background-color: antiquewhite;
-    height: 98vh;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-image: url("../assets/background.png");
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 60px;
 
     .home-button {
         border: none;
@@ -21,11 +21,14 @@
     .home-title {
         margin-top: 0px;
         margin-bottom: 10px;
+        font-size: 60px;
     }
 
     .home-description {
         margin-top: 0px;
         margin-bottom: 20px;
+        font-size: 12px;
+        font-weight: 200;
     }
 
     .icon-division {

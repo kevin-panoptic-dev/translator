@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../css/home.css";
+import "../css/content.css";
 
 function Home() {
     // constants
@@ -14,9 +15,9 @@ function Home() {
     useEffect(() => {
         const handleScroll = (event: globalThis.WheelEvent) => {
             if (event.deltaY > 0) {
-                setZoomLevel((prev) => Math.min(prev + 0.5, 50));
+                setZoomLevel((prev) => Math.min(prev + 0.25, 25));
             } else {
-                setZoomLevel((prev) => Math.max(prev - 0.5, 1));
+                setZoomLevel((prev) => Math.max(prev - 0.25, 1));
             }
         };
 
@@ -27,28 +28,39 @@ function Home() {
         };
     }, []);
 
-    return (
-        <div className="home">
-            <div className="icon-division">
-                <img src="src/assets/translate-icon.png" className="translate-icon" />
-            </div>
-
-            <h1 className="home-title">Aloy's Translator</h1>
-            <p className="home-description">free, open-source AI translation</p>
-            <button
-                type="submit"
-                onClick={() => {
-                    redirect("ai-translate");
-                }}
-                className="home-button"
+    if (zoomLevel < 25) {
+        return (
+            <div
+                className="home"
+                style={{ transform: `scale(${zoomLevel})`, transformOrigin: "center" }}
             >
-                Try
-            </button>
-            <div className="arrow-division">
-                <img src="src/assets/arrow.png" className="arrow" />
+                <div className="icon-division">
+                    <img src="src/assets/translate-icon.png" className="translate-icon" />
+                </div>
+
+                <h1 className="home-title">Aloy's Translator</h1>
+                <p className="home-description">free, open-source AI translation</p>
+                <button
+                    type="submit"
+                    onClick={() => {
+                        redirect("ai-translate");
+                    }}
+                    className="home-button"
+                >
+                    Try
+                </button>
+                <div className="arrow-division">
+                    <img src="src/assets/arrow.png" className="arrow" />
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div className="content">
+                <p>Hello, world!</p>
+            </div>
+        );
+    }
 }
 
 export { Home };
